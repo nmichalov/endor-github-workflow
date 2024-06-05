@@ -13,7 +13,7 @@ jobs:
     permissions:
       id-token: write
     with:
-      namespace: example
+      namespace: nate-learn
       # Change below to set number of results; this should match your max-parallel
       result-limit: 5
     # uncomment below to use API auth instead of Actions OIDC; set secret to key and secret in the form key_id:key_secret
