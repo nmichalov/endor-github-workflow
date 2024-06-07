@@ -6,7 +6,7 @@ on:
 
 jobs:
   endor-scan:
-    uses: endorlabs/endor-github-workflow/.github/workflows/scan-with-endorlabs.yml@v0
+    uses: nmichalov/endor-github-workflow/.github/workflows/scan-with-endorlabs.yml@vmain
     permissions:
       id-token: write      # allows authentication to Endor Labs using Actions OIDC JWT Token
       contents: read       # allows this job to clone org repos
