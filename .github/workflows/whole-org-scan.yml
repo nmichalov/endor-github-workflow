@@ -8,25 +8,25 @@ on:
 jobs:
   # TODO org-sync pattern
 
-  setup:
-    uses: nmichalov/endor-github-workflow/.github/workflows/find-unscanned.yml@main
-    permissions:
-      id-token: write
-    with:
-      namespace: nate-learn
+  # setup:
+  #   uses: nmichalov/endor-github-workflow/.github/workflows/find-unscanned.yml@main
+  #   permissions:
+  #     id-token: write
+  #   with:
+  #     namespace: nate-learn
       # Change below to set number of results; this should match your max-parallel
-      result-limit: 5
+      # result-limit: 5
     # uncomment below to use API auth instead of Actions OIDC; set secret to key and secret in the form key_id:key_secret
     # secrets: 
     #   endorlabs-api-auth: ${{ secrets.ENDORLABS_API_AUTH }}
 
   scan-matrix:
-    needs: setup
+    # needs: setup
     strategy:
       # fail-fast should be set false so that one scan failure doesn't stop the whole matrix
       fail-fast: false
-      max-parallel: ${{ needs.setup.outputs.job-count }}
-      matrix: ${{ fromJson(needs.setup.outputs.matrix-json) }}
+      max-parallel: 5
+      matrix: {"git-url": ["https://github.com/nmichalov/app-java-demo.git"]}
     uses: nmichalov/endor-github-workflow/.github/workflows/scan-with-endorlabs.yml@main
     permissions:
       id-token: write      # allows authentication to Endor Labs using Actions OIDC JWT Token
