@@ -31,7 +31,7 @@ on:
       upload-sarif:
         description: "upload SARIF results to GitHub for consumption in Security Tab (requires public repo or GHAS license); use only when sidecar-scanning within a repo!"
         type: boolean
-        default: false
+        default: true
       endorlabs-api-url:
         description: "URL to use for Endor Labs root API (default = 'https://api.endorlabs.com')"
         required: false
